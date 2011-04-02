@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Delayed Input 1</title>
+<script src='prototype.js'></script>
+<script>
+var Widget = window.Widget || {};
+
+Widget.Placeholder = Class.create({
+  initialize: function(element) {
+    this.element = $(element);
+    if(Widget.Placeholder.supported) return;
+    this.placeholder = this.element.readAttribute("placeholder");
+    this.element
+      .observe("focus", this.focus.bind(this))
+      .observe("blur", this.blur.bind(this));
+      
+    this.form = this.element.up("form")
+    if(this.form) {
+      this.form.observe("submit", this.submit.bind(this));
+    };
+    this.blur();
+  },
+  focus: function(e) {
+    if($F(this.element) == '') { 
+      this.element.value = ''; 
+      this.element.removeClassName("placeholder")
+    }
+  },
+  blur: function(e) {
+    if($F(this.element) == '') { 
+      this.element.value = this.placeholder; 
+      this.element.addClassName("placeholder")
+    }
+  },
+  submit: function(e) {
+    if($F(this.element) == '') { 
+      this.element.value = '';
+    }
+  },
+  destroy: function() {
+    this.element.stopObserving();
+    if(this.form) {
+      this.form.stopObserving();
+    }
+  }
+});
+
+Widget.Placeholder.supported = ('placeholder' in document.createElement('input'));
+
+if(!Widget.Placeholder.supported) {
+  Form.Element.Serializers.valueSelector = function(element, value) {
+    if(Object.isUndefined(value)) {
+      var placeholder = $(element).readValue("placeholder");
+      if(placeholder && element.value == placeholder) return "";
+      else return element.value;
+    } else { 
+      element.value = value;
+    }
+  };
+  Form.Element.Serializers.input = function(element, value) {
+    switch (element.type.toLowerCase()) {
+    case 'checkbox':
+    case 'radio':
+      return Form.Element.Serializers.inputSelector(element, value);
+    default:
+      return Form.Element.Serializers.valueSelector(element, value);
+    }
+  }
+  document.observe("dom:loaded", function(e) {
+    $$("input[placeholder]").each(function(input) {
+      new Widget.Placeholder(input);
+    })   
+  });
+}
+
+Widget.DelayedInput = Class.create(Widget.Placeholder, {
+  initialize: function($super, element, options) {
+    $super(element);
+    this.options = Object.extend({
+      delay: 0.6
+    });
+    this.element.observe("keypress", this.keypress.bind(this));
+  },
+  keypress: function(e) {
+    if(this.timeout) clearTimeout(this.timeout);
+    if(e.which == 13) return this.elapsed();
+    this.timeout = this.elapsed.bind(this).delay(0.5);
+  },
+  elapsed: function() {
+    this.element.fire("input:elapsed", { source: this, value: $F(this.element) });
+    delete this.timeout;
+  }
+});
+
+document.observe("dom:loaded", function(e) {
+  new Widget.DelayedInput("search");
+  $("search").observe("input:elapsed", function(e) {
+    $("log").insert({ top: new Element("li").update(e.memo.value) });
+    e.stop();
+  });
+});
+</script>
+<style>
+input {
+  font-size: 2em;
+  width: 500px
+}
+#log li {
+  font-family: Tahoma;
+  font-size: 2em;
+}
+.placeholder {
+  color: #999;
+}
+</style>
+</head>
+<body>
+  <div align='center'>
+    <input id="search" placeholder="Search Bookmarks and History">
+  </div>
+  <ul id='log'>
+  </ul>
+</body>
+</html>

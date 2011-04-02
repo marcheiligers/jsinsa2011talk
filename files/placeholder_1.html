@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Placeholder 1</title>
+<script src='prototype.js'></script>
+<script>
+window.Widget = window.Widget || {};
+
+Widget.Placeholder = Class.create({
+  initialize: function(element) {
+    this.element = $(element);
+    this.placeholder = this.element.readAttribute("placeholder");
+    
+    this.element
+      .observe("focus", (function(e) {
+        if($F(this.element) == this.placeholder) { 
+          this.element.value = ''; 
+        }
+      }).bind(this))
+      .observe("blur", (function(e) {
+        if($F(this.element) == '') { 
+          this.element.value = this.placeholder; 
+        }
+      }).bind(this));
+  }
+});
+
+Widget.Placeholder.supported = false; //('placeholder' in document.createElement('input'));
+
+if(!Widget.Placeholder.supported) {
+  document.observe("dom:loaded", function(e) {
+    $$("input[placeholder]").each(function(input) {
+      new Widget.Placeholder(input);
+    })   
+  });
+}
+</script>
+</head>
+<body>
+  <div align='center'>
+    <form>
+      <input name="q" placeholder="Search Bookmarks and History" style='font-size:2em;width:500px'>
+      <input type="submit" value="Search" style='font-size:2em;'>
+    </form>
+  </div>
+</body>
+</html>

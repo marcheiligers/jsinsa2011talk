@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Placeholder 2</title>
+<script src='prototype.js'></script>
+<script>
+var Widget = window.Widget || {};
+
+Widget.Placeholder = Class.create({
+  initialize: function(element) {
+    this.element = $(element);
+    this.placeholder = this.element.readAttribute("placeholder");
+    this.element
+      .observe("focus", this.focus.bind(this))
+      .observe("blur", this.blur.bind(this));
+    this.blur();
+  },
+  focus: function(e) {
+    if($F(this.element) == this.placeholder) { 
+      this.element.value = ''; 
+      this.element.removeClassName("placeholder")
+    }
+  },
+  blur: function(e) {
+    if($F(this.element) == '') { 
+      this.element.value = this.placeholder; 
+      this.element.addClassName("placeholder")
+    }
+  }
+});
+
+Widget.Placeholder.supported = false; //('placeholder' in document.createElement('input'));
+
+if(!Widget.Placeholder.supported) {
+  document.observe("dom:loaded", function(e) {
+    $$("input[placeholder]").each(function(input) {
+      new Widget.Placeholder(input);
+    })   
+  });
+}
+</script>
+<style>
+.placeholder {
+  color: #999;
+}
+</style>
+</head>
+<body>
+  <div align='center'>
+    <form>
+      <input name="q" placeholder="Search Bookmarks and History" style='font-size:2em;width:500px'>
+      <input type="submit" value="Search" style='font-size:2em;'>
+    </form>
+  </div>
+</body>
+</html>

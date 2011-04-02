@@ -1,0 +1,10 @@
+{
+  "name": "Building JavaScript Widgets",
+  "sections": [ 
+    { "section": "slides/introduction" },
+    { "section": "slides/existing" },
+    { "section": "slides/placeholder" }, 
+    { "section": "slides/delayed-input" },
+    { "section": "slides/tips" } 
+  ]
+}

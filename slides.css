@@ -1,0 +1,350 @@
+.slide {
+  border: none;
+  background: #fff; /* for non-css3 browsers */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#B8E3F4'); /* for IE */
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#B8E3F4)); /* for webkit browsers */
+  background: -moz-linear-gradient(top,  #fff,  #B8E3F4); /* for firefox 3.6+ */
+  color: #0D526F;
+}
+
+.bullets {
+  margin-top: 0 !important;
+}
+
+.bullets ul {
+  margin-left: 60px;
+  list-style-type: disc;
+}
+
+.bullets ul li {
+  text-align: left;
+  padding: 20px 0 0 0;
+}
+.bullets ul li ul li {
+  font-size: 0.3em;
+}
+
+.quote blockquote {
+  font-size: 2.5em;
+  margin: 0 30px;
+  padding-left: 15px;
+  border-left: 5px solid rgba(204, 204, 204, 0.2);
+}
+
+#head {
+  position: absolute;
+  top: 0px;
+  width: 1000px;
+  padding: 10px;
+  font-family: "Arial Rounded MT Bold";
+  color: #fff;
+  text-shadow: 0 0 3px #999;
+  text-align: left;
+}
+
+#head span {
+  float: right;
+}
+
+#foot {
+  position: absolute;
+  background: #fff;
+  top: 695px;
+  height: 73px;
+  width: 1024px;
+}
+
+#sponsors {
+  position: absolute;
+  bottom: 0px;
+  width: 1024px;
+  height: 73px;
+  background: #fff center center no-repeat;
+}
+
+a {
+  color: #0D526F;
+}
+
+.reference {
+  position: absolute;
+  top: 700px;
+  width: 990px;
+  text-align: right;
+}
+
+.reference:before {
+  content: ' - ';
+}
+
+iframe {
+  border: 1px dotted rgba(0, 0, 0, 0.2);
+  padding: 40px 0;
+  margin: 0 40px;
+  width: 940px;
+}
+
+/* Textmate syntax highlighting */
+
+code.textmate-source {
+	margin: 0;
+	padding: 0 0 0 2px;
+	font-family: Consolas, monospace;
+	font-size: 22px;
+	line-height: 1.3em;
+	word-wrap: break-word;
+	white-space: pre;
+	white-space: pre-wrap;
+	white-space: -moz-pre-wrap;
+	white-space: -o-pre-wrap;
+}
+
+code.textmate-source.twilight {
+  display: block;
+  margin: 30px 50px 30px 30px;
+  padding-bottom: 30px;
+	color: #F8F8F8;
+	background-color: #141414;
+}
+
+code.textmate-source .linenum {
+	width: 75px;
+	padding: 0.1em 1em 0.2em 0;
+	color: #888;
+	background-color: #141414;
+}
+code.textmate-source .linenum.empty {
+	padding: 0;
+	font-size: 0.5em;
+}
+code.textmate-source.twilight .linenum.empty span {
+	padding: 0;
+}
+code.textmate-source.twilight span {
+   padding-top: 0.2em;
+   padding-bottom: 0.1em;
+}
+code.textmate-source.twilight ::selection {
+	background-color: rgba(221, 240, 255, 0.20);
+}
+/* Comment */
+code.textmate-source.twilight .comment {
+	color: #5F5A60;
+	font-style: italic;
+}
+
+/* Constant */
+code.textmate-source.twilight .constant {
+	color: #CF6A4C;
+}
+
+/* Entity */
+code.textmate-source.twilight .entity {
+	color: #9B703F;
+}
+
+/* Keyword */
+code.textmate-source.twilight .keyword {
+	color: #CDA869;
+}
+
+/* Storage */
+code.textmate-source.twilight .storage {
+	color: #F9EE98;
+}
+
+/* String */
+code.textmate-source.twilight .string {
+	color: #8F9D6A;
+}
+
+/* Support */
+code.textmate-source.twilight .support {
+	color: #9B859D;
+}
+
+/* Variable */
+code.textmate-source.twilight .variable {
+	color: #7587A6;
+}
+
+/* Invalid – Deprecated */
+code.textmate-source.twilight .invalid_deprecated {
+	color: #D2A8A1;
+	font-style: italic;
+	text-decoration: underline;
+}
+
+/* Invalid – Illegal */
+code.textmate-source.twilight .invalid_illegal {
+	color: #F8F8F8;
+	background-color: rgba(86, 45, 86, 0.75);
+}
+
+/* ♦ Embedded Source */
+code.textmate-source.twilight .text .source {
+	background-color: rgba(176, 179, 186, 0.08);
+}
+
+/* ♦ Embedded Source (Bright) */
+code.textmate-source.twilight .text_html_ruby .source {
+	background-color: rgba(177, 179, 186, 0.13);
+}
+
+/* ♦ Entity inherited-class */
+code.textmate-source.twilight .entity_other_inherited-class {
+	color: #9B5C2E;
+	font-style: italic;
+}
+
+/* ♦ String embedded-source */
+code.textmate-source.twilight .string .source {
+	color: #DAEFA3;
+}
+
+/* ♦ String constant */
+code.textmate-source.twilight .string .constant {
+	color: #DDF2A4;
+}
+
+/* ♦ String.regexp */
+code.textmate-source.twilight .string_regexp {
+	color: #E9C062;
+}
+
+/* ♦ String.regexp.«special» */
+code.textmate-source.twilight .string_regexp .constant_character_escape, code.textmate-source.twilight .string_regexp .source_ruby_embedded, code.textmate-source.twilight .string_regexp .string_regexp_arbitrary-repitition {
+	color: #CF7D34;
+}
+
+/* ♦ String variable */
+code.textmate-source.twilight .string .variable {
+	color: #8A9A95;
+}
+
+/* ♦ Support.function */
+code.textmate-source.twilight .support_function {
+	color: #DAD085;
+}
+
+/* ♦ Support.constant */
+code.textmate-source.twilight .support_constant {
+	color: #CF6A4C;
+}
+
+/* c C/C++ Preprocessor Line */
+code.textmate-source.twilight .meta_preprocessor_c {
+	color: #8996A8;
+}
+
+/* c C/C++ Preprocessor Directive */
+code.textmate-source.twilight .meta_preprocessor_c .keyword {
+	color: #AFC4DB;
+}
+
+/* ✘ Doctype/XML Processing */
+code.textmate-source.twilight .meta_tag_sgml_doctype, code.textmate-source.twilight .meta_tag_sgml_doctype .entity, code.textmate-source.twilight .meta_tag_sgml_doctype .string, code.textmate-source.twilight .meta_tag_preprocessor_xml, code.textmate-source.twilight .meta_tag_preprocessor_xml .entity, code.textmate-source.twilight .meta_tag_preprocessor_xml .string {
+	color: #494949;
+}
+
+/* ✘ Meta.tag.«all» */
+code.textmate-source.twilight .declaration_tag, code.textmate-source.twilight .declaration_tag .entity, code.textmate-source.twilight .meta_tag, code.textmate-source.twilight .meta_tag .entity {
+	color: #AC885B;
+}
+
+/* ✘ Meta.tag.inline */
+code.textmate-source.twilight .declaration_tag_inline, code.textmate-source.twilight .declaration_tag_inline .entity, code.textmate-source.twilight .source .entity_name_tag, code.textmate-source.twilight .source .entity_other_attribute-name, code.textmate-source.twilight .meta_tag_inline, code.textmate-source.twilight .meta_tag_inline .entity {
+	color: #E0C589;
+}
+
+/* § css tag-name */
+code.textmate-source.twilight .meta_selector_css .entity_name_tag {
+	color: #CDA869;
+}
+
+/* § css:pseudo-class */
+code.textmate-source.twilight .meta_selector_css .entity_other_attribute-name_tag_pseudo-class {
+	color: #8F9D6A;
+}
+
+/* § css#id */
+code.textmate-source.twilight .meta_selector_css .entity_other_attribute-name_id {
+	color: #8B98AB;
+}
+
+/* § css.class */
+code.textmate-source.twilight .meta_selector_css .entity_other_attribute-name_class {
+	color: #9B703F;
+}
+
+/* § css property-name: */
+code.textmate-source.twilight .support_type_property-name_css {
+	color: #C5AF75;
+}
+
+/* § css property-value; */
+code.textmate-source.twilight .meta_property-group .support_constant_property-value_css, code.textmate-source.twilight .meta_property-value .support_constant_property-value_css {
+	color: #F9EE98;
+}
+
+/* § css @at-rule */
+code.textmate-source.twilight .meta_preprocessor_at-rule .keyword_control_at-rule {
+	color: #8693A5;
+}
+
+/* § css additional-constants */
+code.textmate-source.twilight .meta_property-value .support_constant_named-color_css, code.textmate-source.twilight .meta_property-value .constant {
+	color: #CA7840;
+}
+
+/* § css constructor.argument */
+code.textmate-source.twilight .meta_constructor_argument_css {
+	color: #8F9D6A;
+}
+
+/* ⎇ diff.header */
+code.textmate-source.twilight .meta_diff, code.textmate-source.twilight .meta_diff_header, code.textmate-source.twilight .meta_separator {
+	color: #F8F8F8;
+	font-style: italic;
+	background-color: #0E2231;
+}
+
+/* ⎇ diff.deleted */
+code.textmate-source.twilight .markup_deleted {
+	color: #F8F8F8;
+	background-color: #420E09;
+}
+
+/* ⎇ diff.changed */
+code.textmate-source.twilight .markup_changed {
+	color: #F8F8F8;
+	background-color: #4A410D;
+}
+
+/* ⎇ diff.inserted */
+code.textmate-source.twilight .markup_inserted {
+	color: #F8F8F8;
+	background-color: #253B22;
+}
+
+/* Markup: List */
+code.textmate-source.twilight .markup_list {
+	color: #F9EE98;
+}
+
+/* Markup: Heading */
+code.textmate-source.twilight .markup_heading {
+	color: #CF6A4C;
+}
+
+
+/* Some special images */
+img[alt=Sponsors] {
+  position: absolute;
+  top: 695px;
+  margin-left: 35px;
+}
+img[alt="Mad Mimi"] {
+  float: right;
+  margin-right: 100px;
+}
