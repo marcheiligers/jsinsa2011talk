@@ -1,7 +1,7 @@
 gem 'rack', '1.2.2'
 gem 'sinatra', '1.2.1'
 gem 'rest-client', '1.6.1'
-gem 'showoff', :git => 'git@github.com:marcheiligers/showoff.git'
+gem 'showoff', :git => 'git@github.com:marcheiligers/showoff.git', :branch => 'master'
 gem 'bluecloth', '2.1.0'
 gem 'configuration', '1.2.0'
 gem 'gli', '1.2.6'
