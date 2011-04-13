@@ -1,0 +1,52 @@
+GIT
+  remote: git@github.com:marcheiligers/showoff.git
+  revision: f1d11dee7bfd85a3837dfa484e46162accb87719
+  branch: master
+  specs:
+    showoff (0.4.0)
+      bluecloth
+      gli (>= 1.2.5)
+      json
+      nokogiri
+      sinatra
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    bluecloth (2.1.0)
+    configuration (1.2.0)
+    gli (1.2.6)
+    json (1.5.1)
+    launchy (0.3.7)
+      configuration (>= 0.0.5)
+      rake (>= 0.8.1)
+    mg (0.0.8)
+      rake
+    mime-types (1.16)
+    nokogiri (1.4.4)
+    rack (1.2.2)
+    rake (0.8.7)
+    rest-client (1.6.1)
+      mime-types (>= 1.16)
+    sinatra (1.2.1)
+      rack (~> 1.1)
+      tilt (>= 1.2.2, < 2.0)
+    tilt (1.2.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bluecloth (= 2.1.0)
+  configuration (= 1.2.0)
+  gli (= 1.2.6)
+  json (= 1.5.1)
+  launchy (= 0.3.7)
+  mg (= 0.0.8)
+  mime-types (= 1.16)
+  nokogiri (= 1.4.4)
+  rack (= 1.2.2)
+  rest-client (= 1.6.1)
+  showoff!
+  sinatra (= 1.2.1)
+  tilt (= 1.2.2)
