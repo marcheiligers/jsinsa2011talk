@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:marcheiligers/showoff.git
+  remote: git://github.com/marcheiligers/showoff.git
   revision: f1d11dee7bfd85a3837dfa484e46162accb87719
   branch: master
   specs:
